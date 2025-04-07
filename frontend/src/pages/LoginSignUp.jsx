@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 
 const inputStyle = {
@@ -39,10 +38,10 @@ const Login = (props) => {
     const handleLogin = async (event) => {
         event.preventDefault();
         try{
-            // await axios.patch("http://localhost:8080/user", {
-            //     username: userName,
-            //     password: userPassword, 
-            // })
+            await axios.post("http://localhost:8080/user/login", {
+                username: userName,
+                password: userPassword, 
+            })
             props.toggleFunc(true);
         }
         catch(err) {
@@ -82,14 +81,14 @@ const Signup = (props) => {
             return;
         }
         try{
-            // await axios.post("http://localhost:8080/user", {
-            //     username: userName,
-            //     password: userPassword, 
-            // })
+            await axios.post("http://localhost:8080/user/signup", {
+                username: userName,
+                password: userPassword, 
+            })
             props.toggleFunc(true);
         }
         catch(err) {
-            setErrMsg("internal server error");
+            setErrMsg("User already exists. Please provide a different username. ");
         }
     }
     return (
