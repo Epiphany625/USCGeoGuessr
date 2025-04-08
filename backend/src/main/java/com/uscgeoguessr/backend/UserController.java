@@ -18,9 +18,14 @@ import java.util.Optional;
 
 class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int user_id; private String username; private String password;
-    private int total_score; private int game_count; private int high_score;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private int user_id;
+    private String username;
+    private String password;
+    private int total_score;
+    private int game_count;
+    private int high_score;
 
     // Constructor
     public User() {}
