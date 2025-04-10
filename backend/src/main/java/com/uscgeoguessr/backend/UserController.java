@@ -85,7 +85,7 @@ class LoginSignupBody {
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "https://Epiphany625.github.io", "https://Epiphany625.github.io/USCGeoGuessr"})
 public class UserController {
     @Autowired
     private UserRepository userRepository;
