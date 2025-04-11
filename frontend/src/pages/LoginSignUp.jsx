@@ -38,11 +38,12 @@ const Login = (props) => {
     const handleLogin = async (event) => {
         event.preventDefault();
         try{
-            await axios.post("http://localhost:8080/user/login", {
+            const response = await axios.post("http://localhost:8080/user/login", {
                 username: userName,
                 password: userPassword, 
             })
             props.toggleFunc(true);
+            props.setUserInfo(response.data);
         }
         catch(err) {
             setErrMsg("Wrong credentials, or ther user does not exist");
@@ -81,11 +82,12 @@ const Signup = (props) => {
             return;
         }
         try{
-            await axios.post("http://localhost:8080/user/signup", {
+            const response = await axios.post("http://localhost:8080/user/signup", {
                 username: userName,
                 password: userPassword, 
             })
             props.toggleFunc(true);
+            props.setUserInfo(response.data);
         }
         catch(err) {
             setErrMsg("User already exists. Please provide a different username. ");
@@ -122,8 +124,8 @@ function LoginSignUp(props) {
                     <button style={loginButton} onClick={() => setIsLogin(true)}>Log in</button>
                     <button style={signupButton} onClick={() => setIsLogin(false)}>Sign up</button>
                 </div>
-                {isLogin && <Login toggleFunc={props.toggleFunc}/>}
-                {!isLogin && <Signup toggleFunc={props.toggleFunc}/>}
+                {isLogin && <Login toggleFunc={props.toggleFunc} setUserInfo={props.setUserInfo}/>}
+                {!isLogin && <Signup toggleFunc={props.toggleFunc} setUserInfo={props.setUserInfo}/>}
             </div>
         </div>
 

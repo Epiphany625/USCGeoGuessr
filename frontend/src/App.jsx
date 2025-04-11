@@ -7,8 +7,11 @@ import './App.css'
 
 function App() {
   const [hasLoggedin, handleHasLoggedin] = useState(false);
+  const [userInfo, setUserInfo] = useState({}); 
   return (
-    <>{hasLoggedin ? <Landing /> : <LoginSignUp toggleFunc={handleHasLoggedin} />}</>
+    <>
+    {hasLoggedin ? <Landing userInfo={userInfo}/> : <LoginSignUp toggleFunc={handleHasLoggedin} setUserInfo={setUserInfo} />}
+    </>
   )
 }
 
