@@ -1,53 +1,32 @@
 # USCGeoGuesser
 
-## push everything in a separate branch
+## clone this repository. Open a separate branch and push everything to that branch
+
+```
+git clone git@github.com:Epiphany625/USCGeoGuessr.git
+git checkout -b "your_new_branch_name"
+// assume you have made some changes and now decide to push it to the repository
+git status
+git add .
+git commit -m "a short description of your changes. Please be precise."
+git push origin "your_new_branch_name"
+```
+
+After you push your changes, Xinyang Xu will merge the branch into the main.
+
+**How to Run the Frontend React Application**
+
+```
+cd frontend
+npm install
+npm run dev
+```
+If you do not have npm installed, please refer to documentations.
+You can also view the published React application at https://epiphany625.github.io/USCGeoGuessr/
 
 **How to Run the Spring Boot Application**
 IntelliJ Ultimate Version, Java version 21+, navigate to project root directory, and hit the green run button.
-
 **Set Up Database**
-
-```
-CREATE DATABASE USCGeoguessr;
-USE USCGeoguessr;
-CREATE TABLE `users` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(1000) NOT NULL,
-  `total_score` INT NOT NULL,
-  `game_count` INT NOT NULL,
-  `high_score` INT NOT NULL,
-  PRIMARY KEY (`user_id`)
-);
--- sample values
-INSERT INTO `users` (`username`, `password`, `total_score`, `game_count`, `high_score`) VALUES ("Leo", "LeoPassword", 30, 5, 13);
-INSERT INTO `users` (`username`, `password`, `total_score`, `game_count`, `high_score`) VALUES ("Felicia", "FeliciaPassword", 20, 2, 16);
-INSERT INTO `users` (`username`, `password`, `total_score`, `game_count`, `high_score`) VALUES ("Joshua", "JoshuaPassword", 50, 6, 20);
-INSERT INTO `users` (`username`, `password`, `total_score`, `game_count`, `high_score`) VALUES ("Thiago", "ThiagoPassword", 15, 1, 15);
-
-```
-
+Database is set up at AWS RDS. Please contact Xinyang Xu to access it, as it contains password information.
 **Edit application.properties**
-Edit the file located at src/main/resources/application.properties to configure environment-specific settings.
-
-```
-spring.application.name=backend
-
-spring.datasource.url=jdbc:mysql://localhost:3306/USCGeoguessr
-spring.datasource.username=root
-spring.datasource.password=<your_database_password>
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
-```
-
-Make sure your database is up and credentials are correct.
-
-**How to Run Tests**
-
-To run all tests:
-
-```
-brew install maven
-mvn test
-```
+Please contact Xinyang Xu to correctly use application.properties.
