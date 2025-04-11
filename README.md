@@ -21,8 +21,8 @@ cd frontend
 npm install
 npm run dev
 ```
-
 If you do not have npm installed, please refer to documentations.
+You can also view the published React application at https://epiphany625.github.io/USCGeoGuessr/
 
 **How to Run the Spring Boot Application**
 IntelliJ Ultimate Version, Java version 21+, navigate to project root directory, and hit the green run button.
